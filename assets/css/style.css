@@ -1,1 +1,57 @@
-
+body {
+  height: 97vh;
+  margin: 0 auto;
+  background-image: url('../images/lfz-background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1 {
+  height: 100%;
+  font-size: 3rem;
+}
+header {
+  height: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+.card {
+  flex-basis: 16%;
+  height: 32%;
+  background-image: url('../images/lfz-card.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.stat {
+  height: 13%;
+  flex-basis: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.stat p {
+  background-color: #87ceeb;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+div.container div:first-child.row {
+  justify-content: center;
+  height: 10%;
+}
+div.container div:last-child.row {
+  height: 90%;
+  margin: 0 auto;
+}
+div.container div:last-child aside{
+  height: 100%;
+  flex-wrap: wrap;
+  align-content: center;
+  margin: 0 auto;
+}
+div.container div:last-child main{
+  justify-content: space-around;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
