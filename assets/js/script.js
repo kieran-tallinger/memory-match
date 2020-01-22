@@ -1,4 +1,6 @@
 var gameCards = document.getElementById('gameCards');
+var maxMatches = 9;
+var matches = 0;
 var firstCardClicked;
 var secondCardClicked;
 var firstCardClasses;
@@ -23,6 +25,11 @@ function handleClick(event) {
       gameCards.addEventListener('click', handleClick);
       firstCardClicked = null;
       secondCardClicked = null;
+      matches++;
+      if (matches === maxMatches) {
+        document.getElementById('modal').classList.remove('hidden');
+        console.log('you win');
+      }
     } else {
       setTimeout(function () {
           firstCardClicked.classList.remove('hidden');
