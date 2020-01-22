@@ -1,3 +1,11 @@
+.card-front, .card-back {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+}
 body {
   height: 97vh;
   margin: 0 auto;
@@ -15,13 +23,56 @@ header {
   text-align: center;
   margin: 0 auto;
 }
+aside{
+  height: 100%;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  margin: 0 auto;
+}
+main{
+  justify-content: space-evenly;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
 .card {
   flex-basis: 16%;
-  height: 32%;
+  height: 30%;
+  position: relative;
+  margin: 0 auto .5rem;
+}
+.hidden {
+  display: none;
+}
+.card-back {
   background-image: url('../images/lfz-card.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+}
+.js-logo {
+  background-image: url('../images/js-logo.png');
+}
+.html-logo {
+  background-image: url('../images/html-logo.png');
+}
+.css-logo {
+  background-image: url('../images/css-logo.png');
+}
+.git-logo {
+  background-image: url('../images/gitHub-logo.png')
+}
+.docker-logo {
+  background-image: url('../images/docker-logo.jpg')
+}
+.node-logo {
+  background-image: url('../images/node-logo.png')
+}
+.php-logo {
+  background-image: url('../images/php-logo.jpeg')
+}
+.sql-logo {
+  background-image: url('../images/mysql-logo.jpg')
+}
+.react-logo {
+  background-image: url('../images/react-logo.png')
 }
 .stat {
   height: 13%;
@@ -41,17 +92,5 @@ div.container div:first-child.row {
 }
 div.container div:last-child.row {
   height: 90%;
-  margin: 0 auto;
-}
-div.container div:last-child aside{
-  height: 100%;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  margin: 0 auto;
-}
-div.container div:last-child main{
-  justify-content: space-around;
-  align-content: center;
-  flex-wrap: wrap;
   margin: 0 auto;
 }
