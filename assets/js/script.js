@@ -43,13 +43,13 @@ function handleClick(event) {
 
 var gameAdmin = {
   deck: [],
+  spots: document.getElementsByClassName('card'),
   makeDeck: function (){
     var tempDeck = document.getElementsByClassName('card-front');
 
     for (var currentIndex = tempDeck.length; currentIndex > 0; currentIndex--){
       this.deck.push(tempDeck[currentIndex - 1]);
     };
-    console.log(this.deck);
   },
   shuffle: function (arr){
     var currentIndex = arr.length, tempVal, randomIndex;
@@ -63,11 +63,28 @@ var gameAdmin = {
       arr[randomIndex] = tempVal;
       arr.splice(currentIndex, 1);
     }
-    console.log(this.deck);
   },
   placeCards: function (arr) {
-    return;
+    this.removeCards();
+    for (var placeIndex = this.deck.length; placeIndex > 0; placeIndex--){
+      var spotFinder = this.spots[placeIndex - 1];
+      var newClass = this.deck[placeIndex - 1];
+      var newFront = document.createElement('div');
+      newFront.className = newClass;
+      var newBack = document.createElement('div');
+      newBack.className = 'card-back';
+      spotFinder.append(newFront, newBack);
+    }
+  },
+  removeCards: function () {
+    for (var spotIndex = this.spots.length; spotIndex > 0; spotIndex--){
+      while (this.spots[spotIndex - 1].firstChild) {
+        var spotsChildren = this.spots[spotIndex- 1].firstChild;
+        this.spots[spotIndex - 1].removeChild(spotsChildren);
+      };
+    };
   }
 };
 gameAdmin.makeDeck();
 gameAdmin.shuffle(gameAdmin.deck);
+gameAdmin.placeCards(gameAdmin.deck);
