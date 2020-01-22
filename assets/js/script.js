@@ -28,7 +28,6 @@ function handleClick(event) {
       matches++;
       if (matches === maxMatches) {
         document.getElementById('modal').classList.remove('hidden');
-        console.log('you win');
       }
     } else {
       setTimeout(function () {
@@ -41,3 +40,34 @@ function handleClick(event) {
     };
   };
 };
+
+var gameAdmin = {
+  deck: [],
+  makeDeck: function (){
+    var tempDeck = document.getElementsByClassName('card-front');
+
+    for (var currentIndex = tempDeck.length; currentIndex > 0; currentIndex--){
+      this.deck.push(tempDeck[currentIndex - 1]);
+    };
+    console.log(this.deck);
+  },
+  shuffle: function (arr){
+    var currentIndex = arr.length, tempVal, randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      this.deck.push(arr[randomIndex].className)
+      tempVal = arr[currentIndex];
+      arr[currentIndex] = arr[randomIndex];
+      arr[randomIndex] = tempVal;
+      arr.splice(currentIndex, 1);
+    }
+    console.log(this.deck);
+  },
+  placeCards: function (arr) {
+    return;
+  }
+};
+gameAdmin.makeDeck();
+gameAdmin.shuffle(gameAdmin.deck);
