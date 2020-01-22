@@ -46,7 +46,7 @@ div.container div:last-child.row {
 div.container div:last-child aside{
   height: 100%;
   flex-wrap: wrap;
-  align-content: center;
+  align-content: flex-start;
   margin: 0 auto;
 }
 div.container div:last-child main{
