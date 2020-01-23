@@ -1,6 +1,8 @@
 var gameCards = document.getElementById('gameCards');
+var gamesPlayed = 0;
 var maxMatches = 9;
 var matches = 0;
+var attempts = 0;
 var firstCardClicked;
 var secondCardClicked;
 var firstCardClasses;
@@ -26,10 +28,14 @@ function handleClick(event) {
       firstCardClicked = null;
       secondCardClicked = null;
       matches++;
+      attempts++;
+      displayStats();
       if (matches === maxMatches) {
         document.getElementById('modal').classList.remove('hidden');
       }
     } else {
+      attempts++;
+      displayStats();
       setTimeout(function () {
           firstCardClicked.classList.remove('hidden');
           secondCardClicked.classList.remove('hidden');
@@ -39,6 +45,12 @@ function handleClick(event) {
       }, 1500);
     };
   };
+};
+
+function displayStats () {
+  document.getElementById('games-played').textContent = gamesPlayed;
+  document.getElementById('attempts').textContent = attempts;
+  document.getElementById('accuracy').textContent = parseFloat((matches/attempts) * 100).toFixed(2) + '%';
 };
 
 var gameAdmin = {
