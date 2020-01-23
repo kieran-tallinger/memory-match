@@ -1,4 +1,3 @@
-var gameCards = document.getElementById('gameCards');
 var gamesPlayed = 0;
 var maxMatches = 9;
 var matches = 0;
@@ -7,50 +6,59 @@ var firstCardClicked;
 var secondCardClicked;
 var firstCardClasses;
 var secondCardClasses;
+var gameCards = document.getElementById('gameCards');
 
-gameCards.addEventListener('click', handleClick);
-
-function handleClick(event) {
-  if (event.target.className.indexOf('card-back') === -1){
-    return;
-  }
-  if (!firstCardClicked) {
-    firstCardClicked = event.target;
-    firstCardClicked.className += ' hidden';
-    firstCardClasses = firstCardClicked.previousElementSibling.className;
-  } else {
-    secondCardClicked = event.target;
-    secondCardClicked.className += ' hidden';
-    secondCardClasses = secondCardClicked.previousElementSibling.className;
-    gameCards.removeEventListener('click', handleClick);
-    if (firstCardClasses === secondCardClasses){
-      gameCards.addEventListener('click', handleClick);
-      firstCardClicked = null;
-      secondCardClicked = null;
-      matches++;
-      attempts++;
-      displayStats();
-      if (matches === maxMatches) {
-        document.getElementById('modal').classList.remove('hidden');
-      }
+var handlers = {
+  setHandlers: function () {
+    gameCards.addEventListener('click', this.handleClick);
+  },
+  removeHandlers: function () {
+    gameCards.removeEventListener('click', this.handleClick);
+  },
+  handleClick: function (event) {
+    if (event.target.className.indexOf('card-back') === -1){
+      return;
+    }
+    if (!firstCardClicked) {
+      firstCardClicked = event.target;
+      firstCardClicked.className += ' hidden';
+      firstCardClasses = firstCardClicked.previousElementSibling.className;
     } else {
-      attempts++;
-      displayStats();
-      setTimeout(function () {
-          firstCardClicked.classList.remove('hidden');
-          secondCardClicked.classList.remove('hidden');
-          firstCardClicked = null;
-          secondCardClicked = null;
-          gameCards.addEventListener('click', handleClick);
-      }, 1500);
+      secondCardClicked = event.target;
+      secondCardClicked.className += ' hidden';
+      secondCardClasses = secondCardClicked.previousElementSibling.className;
+      gameCards.removeEventListener('click', this.handleClick);
+      if (firstCardClasses === secondCardClasses){
+        gameCards.addEventListener('click', this.handleClick);
+        firstCardClicked = null;
+        secondCardClicked = null;
+        matches++;
+        attempts++;
+        view.displayStats();
+        if (matches === maxMatches) {
+          document.getElementById('modal').classList.remove('hidden');
+        }
+      } else {
+        attempts++;
+        view.displayStats();
+        setTimeout(function () {
+            firstCardClicked.classList.remove('hidden');
+            secondCardClicked.classList.remove('hidden');
+            firstCardClicked = null;
+            secondCardClicked = null;
+            gameCards.addEventListener('click', this.handleClick);
+        }, 1500);
+      };
     };
-  };
-};
+  }
+}
 
-function displayStats () {
-  document.getElementById('games-played').textContent = gamesPlayed;
-  document.getElementById('attempts').textContent = attempts;
-  document.getElementById('accuracy').textContent = parseFloat((matches/attempts) * 100).toFixed(2) + '%';
+var view = {
+  displayStats: function () {
+    document.getElementById('games-played').textContent = gamesPlayed;
+    document.getElementById('attempts').textContent = attempts;
+    document.getElementById('accuracy').textContent = parseFloat((matches / attempts) * 100).toFixed(2) + '%';
+  }
 };
 
 var gameAdmin = {
@@ -95,8 +103,19 @@ var gameAdmin = {
         this.spots[spotIndex - 1].removeChild(spotsChildren);
       };
     };
+  },
+  resetGame: function () {
+    gamesPlayed++
+    matches = 0;
+    attempts = 0;
+  },
+  runGame: function () {
+    this.makeDeck();
+    this.shuffle(this.deck);
+    this.placeCards(this.deck);
+    console.log(this.deck)
   }
 };
-gameAdmin.makeDeck();
-gameAdmin.shuffle(gameAdmin.deck);
-gameAdmin.placeCards(gameAdmin.deck);
+
+gameAdmin.runGame();
+handlers.setHandlers();
