@@ -1,0 +1,30 @@
+.card-back {
+  background-image: url('../images/lfz-card.jpg');
+}
+.js-logo {
+  background-image: url('../images/js-logo.png');
+}
+.html-logo {
+  background-image: url('../images/html-logo.png');
+}
+.css-logo {
+  background-image: url('../images/css-logo.png');
+}
+.git-logo {
+  background-image: url('../images/gitHub-logo.png')
+}
+.docker-logo {
+  background-image: url('../images/docker-logo.jpg')
+}
+.node-logo {
+  background-image: url('../images/node-logo.png')
+}
+.php-logo {
+  background-image: url('../images/php-logo.jpeg')
+}
+.sql-logo {
+  background-image: url('../images/mysql-logo.jpg')
+}
+.react-logo {
+  background-image: url('../images/react-logo.png')
+}
