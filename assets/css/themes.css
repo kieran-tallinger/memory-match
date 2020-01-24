@@ -1,6 +1,9 @@
 .lfz-card-back {
   background-image: url('../images/lfz-card.jpg');
 }
+.lfz-back-image {
+  background-image: url('../images/lfz-background.jpg');
+}
 .js-logo {
   background-image: url('../images/js-logo.png');
 }
@@ -11,23 +14,53 @@
   background-image: url('../images/css-logo.png');
 }
 .git-logo {
-  background-image: url('../images/gitHub-logo.png')
+  background-image: url('../images/gitHub-logo.png');
 }
 .docker-logo {
-  background-image: url('../images/docker-logo.jpg')
+  background-image: url('../images/docker-logo.jpg');
 }
 .node-logo {
-  background-image: url('../images/node-logo.png')
+  background-image: url('../images/node-logo.png');
 }
 .php-logo {
-  background-image: url('../images/php-logo.jpeg')
+  background-image: url('../images/php-logo.jpeg');
 }
 .sql-logo {
-  background-image: url('../images/mysql-logo.jpg')
+  background-image: url('../images/mysql-logo.jpg');
 }
 .react-logo {
-  background-image: url('../images/react-logo.png')
+  background-image: url('../images/react-logo.png');
 }
 .zelda-card-back {
   background-image: url('../images/Zelda\ Card\ Back.png');
+}
+.zelda-back-image {
+  background-image: url('../images/Zelda\ Background.jpg');
+}
+.zelda-ganondorf-card {
+  background-image: url('../images/Ganondorf\ Card.png');
+}
+.zelda-korok-card {
+  background-image: url('../images/Korok\ Card.png');
+}
+.zelda-link-card {
+  background-image: url('../images/Link\ Card.png');
+}
+.zelda-midna-card {
+  background-image: url('../images/Midna\ Card.png');
+}
+.zelda-moon-card {
+  background-image: url('../images/Moon\ Card.png');
+}
+.zelda-princess-card {
+  background-image: url('../images/Princess\ Card.png');
+}
+.zelda-sheik-card {
+  background-image: url('../images/Sheik\ Card.png');
+}
+.zelda-tingle-card {
+  background-image: url('../images/Tingle\ Card.png');
+}
+.zelda-zant-card {
+  background-image: url('../images/Zant\ Card.png');
 }
