@@ -1,4 +1,4 @@
-.card-back {
+.lfz-card-back {
   background-image: url('../images/lfz-card.jpg');
 }
 .js-logo {
@@ -27,4 +27,7 @@
 }
 .react-logo {
   background-image: url('../images/react-logo.png')
+}
+.zelda-card-back {
+  background-image: url('../images/Zelda\ Card\ Back.png');
 }

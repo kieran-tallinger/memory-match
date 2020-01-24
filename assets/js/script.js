@@ -38,7 +38,7 @@ var gameAdmin = {
       var newFront = document.createElement('div');
       newFront.className = "card-front " + newClass;
       var newBack = document.createElement('div');
-      newBack.className = 'card-back';
+      newBack.className = 'lfz-card-back';
       spotFinder.append(newFront, newBack);
     };
   },
@@ -111,7 +111,7 @@ var handlers = {
     };
   },
   handleClick: function (event) {
-    if (event.target.className.indexOf('card-back') === -1){
+    if (event.target.className.indexOf('lfz-card-back') === -1){
       return;
     }
     if (!firstCardClicked) {
@@ -177,3 +177,4 @@ var view = {
 };
 
 gameAdmin.runGame();
+console.log(gameAdmin.deck)
