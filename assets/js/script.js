@@ -90,6 +90,7 @@ var gameAdmin = {
     this.shuffle(this.deck);
     this.placeCards(this.deck);
     handlers.setCardHandlers();
+    console.log(gameAdmin.deck);
   },
   cheat: function () {
     matches = 9;
@@ -200,4 +201,3 @@ var view = {
 };
 
 gameAdmin.runGame();
-console.log(gameAdmin.deck)
