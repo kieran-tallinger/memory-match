@@ -74,7 +74,7 @@ var gameAdmin = {
   },
   checkForWin: function () {
     if (matches === maxMatches) {
-      view.showEndGameModal();
+      view.showMainModal();
     }
   },
   resetGame: function () {
@@ -82,7 +82,7 @@ var gameAdmin = {
     gamesPlayed++;
     document.getElementById('win-message').textContent = "Congratulations You Have Won!!!"
     view.wipeStats();
-    view.hideEndGameModal();
+    view.hideMainModal();
     gameAdmin.runGame();
   },
   runGame: function () {
@@ -191,10 +191,10 @@ var view = {
     document.getElementById('accuracy').textContent = '0.0%';
     document.getElementById('games-played').textContent = gamesPlayed;
   },
-  hideEndGameModal: function () {
+  hideMainModal: function () {
     document.getElementById('modal').classList.add('hidden');
   },
-  showEndGameModal: function () {
+  showMainModal: function () {
     document.getElementById('modal').classList.remove('hidden');
     handlers.setResetHandler();
   },
