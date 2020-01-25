@@ -6,8 +6,9 @@ var firstCardClicked;
 var secondCardClicked;
 var firstCardClasses;
 var secondCardClasses;
+var resetButtons = [];
 var gameCards = document.getElementById('gameCards');
-var resetButtons = document.getElementsByClassName('reset');
+var mainModal = document.getElementById('modal-content');
 
 var gameAdmin = {
   deck: [],
@@ -75,12 +76,20 @@ var gameAdmin = {
   checkForWin: function () {
     if (matches === maxMatches) {
       view.showMainModal();
+      document.getElementById('modal-message').textContent = "Congratulations You Have Won!!!"
+      view.displayResetButton();
+      this.placeResetButton(resetButtons);
+      handlers.setResetHandler();
     }
+  },
+  placeResetButton: function (arr) {
+    for (var placeResetIndex = arr.length; placeResetIndex > 0; placeResetIndex--) {
+      mainModal.appendChild(arr[placeResetIndex - 1]);
+    };
   },
   resetGame: function () {
     gameAdmin.removeCards();
     gamesPlayed++;
-    document.getElementById('win-message').textContent = "Congratulations You Have Won!!!"
     view.wipeStats();
     view.hideMainModal();
     gameAdmin.runGame();
@@ -94,8 +103,8 @@ var gameAdmin = {
   },
   cheat: function () {
     matches = 9;
-    document.getElementById('win-message').textContent = "Tsk, Tsk, Tsk...";
     this.checkForWin();
+    document.getElementById('modal-message').textContent = "Tsk, Tsk, Tsk...";
   },
 };
 
@@ -191,12 +200,22 @@ var view = {
     document.getElementById('accuracy').textContent = '0.0%';
     document.getElementById('games-played').textContent = gamesPlayed;
   },
+  displayResetButton: function () {
+    var resetButton = document.createElement('button');
+    resetButton.textContent = "Reset Game";
+    resetButton.className = "reset";
+    resetButtons.pop();
+    resetButtons.push(resetButton);
+    console.log(resetButtons);
+  },
+  clearMainModal: function () {
+    return
+  },
   hideMainModal: function () {
     document.getElementById('modal').classList.add('hidden');
   },
   showMainModal: function () {
     document.getElementById('modal').classList.remove('hidden');
-    handlers.setResetHandler();
   },
 };
 
