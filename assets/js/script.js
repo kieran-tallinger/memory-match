@@ -96,12 +96,21 @@ var gameAdmin = {
     view.hideMainModal();
     gameAdmin.runGame();
   },
+  setUpStart: function () {
+    // populates the main modal for initial game opening
+    view.createModalTitleText();
+    view.createStartButton();
+  },
   runGame: function () {
     this.chooseTheme(view.themes.lfzDeck);
     this.shuffle(this.deck);
     this.placeCards(this.deck);
     handlers.setCardHandlers();
     console.log(gameAdmin.deck);
+  },
+  startGame: function () {
+    // runs the runGame method when start button in opening modal is pressed
+    // addes the 'hidden' class to the modal
   },
   cheat: function () {
     matches = 9;
@@ -111,6 +120,9 @@ var gameAdmin = {
 };
 
 var handlers = {
+  setStartHandler: function () {
+    // sets handler for start game button
+  },
   setCardHandlers: function () {
     gameCards.addEventListener('click', this.handleClick);
   },
@@ -207,11 +219,17 @@ var view = {
     newTitle.setAttribute('id', 'modal-message');
     document.getElementById('modal-content').appendChild(newTitle);
   },
+  createStartButton: function () {
+    var startButton = document.createElement('button');
+    startButton.textContent = "Let's Go!";
+    startButton.setAttribute('id', 'start-button');
+  },
   createResetButton: function () {
     // might be better to simplify this down later (append here instead of passing around)
     var resetButton = document.createElement('button');
     resetButton.textContent = "Reset Game";
     resetButton.className = "reset";
+    // this part
     resetButtons.pop();
     resetButtons.push(resetButton);
     console.log(resetButtons);
