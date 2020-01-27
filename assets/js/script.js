@@ -75,11 +75,13 @@ var gameAdmin = {
   },
   checkForWin: function () {
     if (matches === maxMatches) {
-      view.showMainModal();
+      view.clearMainModal();
+      view.createModalTitleText();
       document.getElementById('modal-message').textContent = "Congratulations You Have Won!!!"
-      view.displayResetButton();
+      view.createResetButton();
       this.placeResetButton(resetButtons);
       handlers.setResetHandler();
+      view.showMainModal();
     }
   },
   placeResetButton: function (arr) {
@@ -200,7 +202,13 @@ var view = {
     document.getElementById('accuracy').textContent = '0.0%';
     document.getElementById('games-played').textContent = gamesPlayed;
   },
-  displayResetButton: function () {
+  createModalTitleText: function () {
+    var newTitle = document.createElement('h2');
+    newTitle.setAttribute('id', 'modal-message');
+    document.getElementById('modal-content').appendChild(newTitle);
+  },
+  createResetButton: function () {
+    // might be better to simplify this down later (append here instead of passing around)
     var resetButton = document.createElement('button');
     resetButton.textContent = "Reset Game";
     resetButton.className = "reset";
@@ -209,7 +217,10 @@ var view = {
     console.log(resetButtons);
   },
   clearMainModal: function () {
-    return
+    var modalToWipe = document.getElementById('modal-content');
+    while (modalToWipe.firstChild) {
+      modalToWipe.removeChild(modalToWipe.firstChild);
+    };
   },
   hideMainModal: function () {
     document.getElementById('modal').classList.add('hidden');
