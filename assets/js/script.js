@@ -32,14 +32,15 @@ var gameAdmin = {
       arr.pop(currentIndex, 1);
     };
   },
-  placeCards: function (arr) {
+  placeCards: function (arr, backTheme) {
     for (var placeIndex = this.deck.length; placeIndex > 0; placeIndex--){
       var spotFinder = this.spots[placeIndex - 1];
       var newClass = this.deck[placeIndex - 1];
       var newFront = document.createElement('div');
       newFront.className = "card-front " + newClass;
       var newBack = document.createElement('div');
-      newBack.className = 'lfz-card-back';
+      // using new parameter to assign card back based on theme selection
+      newBack.className = backTheme;
       spotFinder.append(newFront, newBack);
     };
   },
