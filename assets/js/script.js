@@ -12,11 +12,19 @@ var mainModal = document.getElementById('modal-content');
 
 var gameAdmin = {
   deck: [],
+  collectedThemes: [],
   spots: document.getElementsByClassName('card'),
   chooseTheme: function (arr) {
     this.deck.length = 0;
     for (var themeIndex = arr.length; themeIndex > 0; themeIndex--){
       this.deck.push(arr[themeIndex - 1]);
+    };
+  },
+  collectThemes: function () {
+    for (var viewIndex in view.themes){
+      if (Array.isArray(view.themes[viewIndex])) {
+        this.collectedThemes.push(view.themes[viewIndex]);
+      };
     };
   },
   shuffle: function (arr){
@@ -94,24 +102,25 @@ var gameAdmin = {
     gameAdmin.removeCards();
     gamesPlayed++;
     view.wipeStats();
-    view.hideMainModal();
     gameAdmin.runGame();
   },
   setUpStart: function () {
-    // populates the main modal for initial game opening
+    gameAdmin.collectThemes();
     view.createModalTitleText();
     view.createStartButton();
+    handlers.setStartHandler();
+    document.getElementById('modal-message').textContent = 'Welcome to Memory Match'
   },
   runGame: function () {
     this.chooseTheme(view.themes.lfzDeck);
     this.shuffle(this.deck);
     this.placeCards(this.deck);
     handlers.setCardHandlers();
+    view.hideMainModal();
     console.log(gameAdmin.deck);
   },
   startGame: function () {
-    // runs the runGame method when start button in opening modal is pressed
-    // addes the 'hidden' class to the modal
+    gameAdmin.runGame();
   },
   cheat: function () {
     matches = 9;
@@ -122,7 +131,10 @@ var gameAdmin = {
 
 var handlers = {
   setStartHandler: function () {
-    // sets handler for start game button
+    document.getElementById('start-button').addEventListener('click', gameAdmin.startGame);
+  },
+  setThemeHandlers: function () {
+
   },
   setCardHandlers: function () {
     gameCards.addEventListener('click', this.handleClick);
@@ -224,6 +236,30 @@ var view = {
     var startButton = document.createElement('button');
     startButton.textContent = "Let's Go!";
     startButton.setAttribute('id', 'start-button');
+    document.getElementById('modal-content').appendChild(startButton);
+  },
+  createThemeButtons: function (collectedThemes) {
+    var themeButtons = document.createElement('button');
+    themeButtons.classList.add('theme-button');
+    for (var themeButtonIndex = 0; themeButtonIndex < collectedThemes.length; themeButtonIndex++){
+      if (themeButtonIndex === 0){
+        themeButtons.setAttribute('id', 'lfz-theme-button');
+        themeButtons.textContent = 'Learning Fuze';
+        document.getElementById('modal-content').appendChild(themeButtons);
+      } else if (themeButtonIndex === 1) {
+        themeButtons.setAttribute('id', 'zelda-theme-button');
+        themeButtons.textContent = 'Legend of Zelda';
+        document.getElementById('modal-content').appendChild(themeButtons);
+      } else if (themeButtonIndex === 2) {
+        themeButtons.setAttribute('id', 'metroid-theme-button');
+        themeButtons.textContent = 'Metroid Prime';
+        document.getElementById('modal-content').appendChild(themeButtons);
+      } else if (themeButtonIndex === 3) {
+        themeButtons.setAttribute('id', 'mario-theme-button');
+        themeButtons.textContent = 'Super Mario';
+        document.getElementById('modal-content').appendChild(themeButtons);
+      }
+    }
   },
   createResetButton: function () {
     // might be better to simplify this down later (append here instead of passing around)
@@ -249,4 +285,4 @@ var view = {
   },
 };
 
-gameAdmin.runGame();
+gameAdmin.setUpStart();
