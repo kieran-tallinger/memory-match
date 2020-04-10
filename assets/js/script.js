@@ -187,7 +187,6 @@ var view = {
     matches = 0;
     attempts = 0;
     document.getElementById('attempts').textContent = attempts;
-    // Below needed due to strange NaN return when using displayStats method upon game reset
     document.getElementById('accuracy').textContent = '0.0%';
     document.getElementById('games-played').textContent = gamesPlayed;
   },
