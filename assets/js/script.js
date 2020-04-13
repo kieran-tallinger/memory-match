@@ -7,24 +7,17 @@ var secondCardClicked = null;
 var firstCardClasses = null;
 var secondCardClasses = null;
 var resetButtons = [];
-var gameCards = document.getElementById('gameCards');
-var mainModal = document.getElementById('modal-content');
+var gameCards = $('#gameCards').addClass("row col-10");
+var mainModal = $('#modal').addClass("modal hidden");
 
 var gameAdmin = {
   deck: [],
   collectedThemes: [],
-  spots: document.getElementsByClassName('card'),
+  spots: $('.card'),
   chooseTheme: function (arr) {
     this.deck.length = 0;
     for (var themeIndex = arr.length; themeIndex > 0; themeIndex--){
       this.deck.push(arr[themeIndex - 1]);
-    };
-  },
-  collectThemes: function () {
-    for (var viewIndex in view.themes){
-      if (Array.isArray(view.themes[viewIndex])) {
-        this.collectedThemes.push(view.themes[viewIndex]);
-      };
     };
   },
   shuffle: function (arr){
@@ -104,11 +97,11 @@ var gameAdmin = {
     gameAdmin.runGame();
   },
   setUpStart: function () {
-    gameAdmin.collectThemes();
+    view.showMainModal();
     view.createModalTitleText();
     view.createStartButton();
     handlers.setStartHandler();
-    document.getElementById('modal-message').textContent = 'Welcome to Memory Match'
+    $('#modal-message').text('Welcome to Memory Match');
   },
   runGame: function () {
     this.chooseTheme(view.themes.lfzDeck);
@@ -135,7 +128,7 @@ var handlers = {
 
   },
   setCardHandlers: function () {
-    gameCards.addEventListener('click', this.handleClick);
+    gameCards.on('click', this.handleClick);
   },
   removeCardHandlers: function () {
     gameCards.removeEventListener('click', this.handleClick);
@@ -235,7 +228,7 @@ var view = {
     startButton.setAttribute('id', 'start-button');
     document.getElementById('modal-content').appendChild(startButton);
   },
-  createThemeButtons: function (collectedThemes) {
+  createThemeButtons: function () {
     var themeButtons = document.createElement('button');
     themeButtons.classList.add('theme-button');
     for (var themeButtonIndex = 0; themeButtonIndex < collectedThemes.length; themeButtonIndex++){
@@ -259,11 +252,9 @@ var view = {
     }
   },
   createResetButton: function () {
-    // might be better to simplify this down later (append here instead of passing around)
     var resetButton = document.createElement('button');
     resetButton.textContent = "Reset Game";
     resetButton.className = "reset";
-    // this part
     resetButtons.pop();
     resetButtons.push(resetButton);
     console.log(resetButtons);
@@ -275,10 +266,10 @@ var view = {
     };
   },
   hideMainModal: function () {
-    document.getElementById('modal').classList.add('hidden');
+    mainModal.addClass("hidden");
   },
   showMainModal: function () {
-    document.getElementById('modal').classList.remove('hidden');
+    mainModal.removeClass("hidden");
   },
 };
 
