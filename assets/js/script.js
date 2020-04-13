@@ -2,10 +2,10 @@ var gamesPlayed = 0;
 var maxMatches = 9;
 var matches = 0;
 var attempts = 0;
-var firstCardClicked;
-var secondCardClicked;
-var firstCardClasses;
-var secondCardClasses;
+var firstCardClicked = null;
+var secondCardClicked = null;
+var firstCardClasses = null;
+var secondCardClasses = null;
 var resetButtons = [];
 var gameCards = document.getElementById('gameCards');
 var mainModal = document.getElementById('modal-content');
@@ -47,7 +47,6 @@ var gameAdmin = {
       var newFront = document.createElement('div');
       newFront.className = "card-front " + newClass;
       var newBack = document.createElement('div');
-      // using new parameter to assign card back based on theme selection
       newBack.className = backTheme;
       spotFinder.append(newFront, newBack);
     };
@@ -117,7 +116,6 @@ var gameAdmin = {
     this.placeCards(this.deck);
     handlers.setCardHandlers();
     view.hideMainModal();
-    console.log(gameAdmin.deck);
   },
   startGame: function () {
     gameAdmin.runGame();
