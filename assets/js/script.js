@@ -10,7 +10,7 @@ var gameCards = $('#gameCards').addClass("row col-10");
 var mainModal = $('#modal').addClass("modal hidden");
 var modalContent = $('#modal-content').addClass('modal-content');
 var modalMessage = $('<h2>').attr('id', 'modal-message');
-var resetButton = $('<button>').text("Reset Game").addClass("reset");
+var startButton = $('<button>').attr('id', 'start-button').text("Let's Go!");
 
 var gameAdmin = {
   deck: [],
@@ -74,8 +74,10 @@ var gameAdmin = {
   checkForWin: function () {
     if (matches === maxMatches) {
       view.clearMainModal();
+      $(modalContent).append(modalMessage);
       $(modalMessage).text("Congratulations You Have Won!!!");
-      $(modalContent).append(resetButton).on('click', gameAdmin.resetGame);
+      $(modalContent).append(startButton).on('click', gameAdmin.resetGame);
+      $(startButton).text("Reset Game");
       view.showMainModal();
     }
   },
@@ -87,9 +89,8 @@ var gameAdmin = {
   },
   setUpStart: function () {
     view.showMainModal();
-    $(modalContent).append(modalMessage);
-    view.createStartButton();
-    handlers.setStartHandler();
+    $(modalContent).append(modalMessage, startButton);
+    $(startButton).on('click', gameAdmin.startGame)
     $('#modal-message').text('Welcome to Memory Match');
   },
   runGame: function () {
@@ -104,25 +105,17 @@ var gameAdmin = {
   },
   cheat: function () {
     matches = 9;
-    $(modalContent).append(modalMessage)
     this.checkForWin();
-
     $(modalMessage).text("Tsk, Tsk, Tsk...");
   },
 };
 
 var handlers = {
-  setStartHandler: function () {
-    document.getElementById('start-button').addEventListener('click', gameAdmin.startGame);
-  },
   setThemeHandlers: function () {
 
   },
   setCardHandlers: function () {
-    gameCards.on('click', this.handleClick);
-  },
-  removeCardHandlers: function () {
-    gameCards.removeEventListener('click', this.handleClick);
+    $(gameCards).on('click', this.handleClick);
   },
   handleClick: function (event) {
     if (event.target.className.indexOf('lfz-card-back') === -1){
@@ -136,7 +129,7 @@ var handlers = {
       secondCardClicked = event.target;
       secondCardClicked.className += ' hidden';
       secondCardClasses = secondCardClicked.previousElementSibling.className;
-      handlers.removeCardHandlers();
+      $(gameCards).off('click', this.handleClick)
       gameAdmin.checkCards();
       };
   },
@@ -202,12 +195,6 @@ var view = {
     document.getElementById('attempts').textContent = attempts;
     document.getElementById('accuracy').textContent = '0.0%';
     document.getElementById('games-played').textContent = gamesPlayed;
-  },
-  createStartButton: function () {
-    var startButton = document.createElement('button');
-    startButton.textContent = "Let's Go!";
-    startButton.setAttribute('id', 'start-button');
-    document.getElementById('modal-content').appendChild(startButton);
   },
   createThemeButtons: function () {
     var themeButtons = document.createElement('button');
