@@ -8,11 +8,12 @@ var firstCardClasses = null;
 var secondCardClasses = null;
 var gameCards = $('#gameCards').addClass("row col-10");
 var mainModal = $('#modal').addClass("modal hidden");
+var modalContent = $('#modal-content').addClass('modal-content');
+var modalMessage = $('<h2>').attr('id', 'modal-message');
 var resetButton = $('<button>').text("Reset Game").addClass("reset");
 
 var gameAdmin = {
   deck: [],
-  collectedThemes: [],
   spots: $('.card'),
   chooseTheme: function (arr) {
     this.deck.length = 0;
@@ -45,10 +46,8 @@ var gameAdmin = {
   removeCards: function () {
     this.deck.length = 0;
     for (var spotIndex = this.spots.length; spotIndex > 0; spotIndex--){
-      while (this.spots[spotIndex - 1].firstChild) {
-        var spotsChildren = this.spots[spotIndex- 1].firstChild;
-        this.spots[spotIndex - 1].removeChild(spotsChildren);
-      };
+      var spot = this.spots[spotIndex - 1];
+      $(spot).empty();
     };
   },
   checkCards: function () {
@@ -75,9 +74,8 @@ var gameAdmin = {
   checkForWin: function () {
     if (matches === maxMatches) {
       view.clearMainModal();
-      view.createModalTitleText();
-      document.getElementById('modal-message').textContent = "Congratulations You Have Won!!!"
-      $("#modal-content").append(resetButton).on('click', gameAdmin.resetGame);
+      $(modalMessage).text("Congratulations You Have Won!!!");
+      $(modalContent).append(resetButton).on('click', gameAdmin.resetGame);
       view.showMainModal();
     }
   },
@@ -89,7 +87,7 @@ var gameAdmin = {
   },
   setUpStart: function () {
     view.showMainModal();
-    view.createModalTitleText();
+    $(modalContent).append(modalMessage);
     view.createStartButton();
     handlers.setStartHandler();
     $('#modal-message').text('Welcome to Memory Match');
@@ -106,8 +104,10 @@ var gameAdmin = {
   },
   cheat: function () {
     matches = 9;
+    $(modalContent).append(modalMessage)
     this.checkForWin();
-    document.getElementById('modal-message').textContent = "Tsk, Tsk, Tsk...";
+
+    $(modalMessage).text("Tsk, Tsk, Tsk...");
   },
 };
 
@@ -202,11 +202,6 @@ var view = {
     document.getElementById('attempts').textContent = attempts;
     document.getElementById('accuracy').textContent = '0.0%';
     document.getElementById('games-played').textContent = gamesPlayed;
-  },
-  createModalTitleText: function () {
-    var newTitle = document.createElement('h2');
-    newTitle.setAttribute('id', 'modal-message');
-    document.getElementById('modal-content').appendChild(newTitle);
   },
   createStartButton: function () {
     var startButton = document.createElement('button');
