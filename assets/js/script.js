@@ -12,6 +12,7 @@ var modalContent = $('#modal-content').addClass('modal-content');
 var modalMessage = $('<h2>').attr('id', 'modal-message');
 var startButton = $('<button>').attr('id', 'start-button').text("Let's Go!");
 
+
 var gameAdmin = {
   deck: [],
   spots: $('.card'),
@@ -73,12 +74,12 @@ var gameAdmin = {
   },
   checkForWin: function () {
     if (matches === maxMatches) {
-      view.clearMainModal();
+      $(modalContent).empty();
       $(modalContent).append(modalMessage);
       $(modalMessage).text("Congratulations You Have Won!!!");
       $(modalContent).append(startButton).on('click', gameAdmin.resetGame);
       $(startButton).text("Reset Game");
-      view.showMainModal();
+      $(mainModal).removeClass("hidden");
     }
   },
   resetGame: function () {
@@ -88,7 +89,7 @@ var gameAdmin = {
     gameAdmin.runGame();
   },
   setUpStart: function () {
-    view.showMainModal();
+    $(mainModal).removeClass("hidden");
     $(modalContent).append(modalMessage, startButton);
     $(startButton).on('click', gameAdmin.startGame)
     $('#modal-message').text('Welcome to Memory Match');
@@ -98,7 +99,7 @@ var gameAdmin = {
     this.shuffle(this.deck);
     this.placeCards(this.deck);
     handlers.setCardHandlers();
-    view.hideMainModal();
+    $(mainModal).addClass("hidden");
   },
   startGame: function () {
     gameAdmin.runGame();
@@ -185,52 +186,35 @@ var view = {
     marioDeck: [],
   },
   displayStats: function () {
-    document.getElementById('games-played').textContent = gamesPlayed;
-    document.getElementById('attempts').textContent = attempts;
-    document.getElementById('accuracy').textContent = parseFloat((matches / attempts) * 100).toFixed(2) + '%';
+    $('#games-played').text(gamesPlayed);
+    $('#attempts').text(attempts);
+    $('#accuracy').text(`${parseFloat((matches / attempts) * 100).toFixed(2) + '%'}`);
   },
   wipeStats: function () {
     matches = 0;
     attempts = 0;
-    document.getElementById('attempts').textContent = attempts;
-    document.getElementById('accuracy').textContent = '0.0%';
-    document.getElementById('games-played').textContent = gamesPlayed;
+    $('#attempts').text(attempts);
+    $('#accuracy').text('0.0%');
+    $('#games-played').text(gamesPlayed);
   },
   createThemeButtons: function () {
-    var themeButtons = document.createElement('button');
-    themeButtons.classList.add('theme-button');
-    for (var themeButtonIndex = 0; themeButtonIndex < collectedThemes.length; themeButtonIndex++){
+    for (var themeButtonIndex = 0; themeButtonIndex < 4; themeButtonIndex++){
+      var themeButton = $('<button>').addClass('theme-button');
       if (themeButtonIndex === 0){
-        themeButtons.setAttribute('id', 'lfz-theme-button');
-        themeButtons.textContent = 'Learning Fuze';
-        document.getElementById('modal-content').appendChild(themeButtons);
+        $(themeButton).attr('id', 'lfz-theme-button').text('Learning Fuze');
+        $('#modal-content').append(themeButton);
       } else if (themeButtonIndex === 1) {
-        themeButtons.setAttribute('id', 'zelda-theme-button');
-        themeButtons.textContent = 'Legend of Zelda';
-        document.getElementById('modal-content').appendChild(themeButtons);
+        $(themeButton).attr('id', 'zelda-theme-button').text('Legend of Zelda');
+        $('#modal-content').append(themeButton);
       } else if (themeButtonIndex === 2) {
-        themeButtons.setAttribute('id', 'metroid-theme-button');
-        themeButtons.textContent = 'Metroid Prime';
-        document.getElementById('modal-content').appendChild(themeButtons);
+        $(themeButton).attr('id', 'metroid-theme-button').text('Metroid Prime');
+        $('#modal-content').append(themeButton);
       } else if (themeButtonIndex === 3) {
-        themeButtons.setAttribute('id', 'mario-theme-button');
-        themeButtons.textContent = 'Super Mario';
-        document.getElementById('modal-content').appendChild(themeButtons);
+        $(themeButton).attr('id', 'mario-theme-button').text('Super Mario');
+        $('#modal-content').append(themeButton);
       }
     }
-  },
-  clearMainModal: function () {
-    var modalToWipe = document.getElementById('modal-content');
-    while (modalToWipe.firstChild) {
-      modalToWipe.removeChild(modalToWipe.firstChild);
-    };
-  },
-  hideMainModal: function () {
-    mainModal.addClass("hidden");
-  },
-  showMainModal: function () {
-    mainModal.removeClass("hidden");
-  },
+  }
 };
 
 gameAdmin.setUpStart();
