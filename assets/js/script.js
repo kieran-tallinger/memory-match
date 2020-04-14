@@ -19,43 +19,42 @@ var gameAdmin = {
   theme: null,
   spots: $('.card'),
   chooseTheme: function (event) {
-    this.deck.length = 0;
+    gameAdmin.deck.length = 0;
     var tempDeck = [];
-    console.log(event)
     switch(event.target.id){
       case 'lfz-theme-button':
         for (var themeIndex = view.themes.lfzDeck.length; themeIndex > 0; themeIndex--) {
-          this.tempDeck.push(view.themes.lfzDeck[themeIndex - 1]);
+          tempDeck.push(view.themes.lfzDeck[themeIndex - 1]);
         };
-        this.cardBack = "lfz-card-back";
-        this.theme = "lfz-back-image";
+        gameAdmin.cardBack = "lfz-card-back";
+        gameAdmin.theme = "lfz-back-image";
         break;
       case 'zelda-theme-button':
         for (var themeIndex = view.themes.zeldaDeck.length; themeIndex > 0; themeIndex--) {
-          this.tempDeck.push(view.themes.zeldaDeck[themeIndex - 1]);
+          tempDeck.push(view.themes.zeldaDeck[themeIndex - 1]);
         };
-        this.cardBack = "zelda-card-back";
-        this.theme = "zelda-back-image";
+        gameAdmin.cardBack = "zelda-card-back";
+        gameAdmin.theme = "zelda-back-image";
         break;
       case 'metroid-theme-button':
         for (var themeIndex = view.themes.metroidDeck.length; themeIndex > 0; themeIndex--) {
-          this.tempDeck.push(view.themes.metroidDeck[themeIndex - 1]);
+          tempDeck.push(view.themes.metroidDeck[themeIndex - 1]);
         };
-        this.cardBack = "metroid-card-back";
-        this.theme = "metroid-back-image";
+        gameAdmin.cardBack = "metroid-card-back";
+        gameAdmin.theme = "metroid-back-image";
         break;
       case 'mario-theme-button':
         for (var themeIndex = view.themes.marioDeck.length; themeIndex > 0; themeIndex--) {
-          this.tempDeck.push(view.themes.marioDeck[themeIndex - 1]);
+          tempDeck.push(view.themes.marioDeck[themeIndex - 1]);
         };
-        this.cardBack = "mario-card-back";
-        this.theme = "mario-back-image";
+        gameAdmin.cardBack = "mario-card-back";
+        gameAdmin.theme = "mario-back-image";
         break;
       default:
         break;
     }
     for (var themeIndex = tempDeck.length; themeIndex > 0; themeIndex--){
-      this.deck.push(tempDeck[themeIndex - 1]);
+      gameAdmin.deck.push(tempDeck[themeIndex - 1]);
     };
   },
   shuffle: function (arr){
@@ -128,6 +127,7 @@ var gameAdmin = {
     $(mainModal).removeClass("hidden");
     $(modalContent).append(modalMessage, startButton);
     $(startButton).on('click', gameAdmin.startGame)
+    view.createThemeButtons();
     $('#modal-message').text('Welcome to Memory Match');
   },
   runGame: function () {
@@ -233,16 +233,16 @@ var view = {
     for (var themeButtonIndex = 0; themeButtonIndex < 4; themeButtonIndex++){
       var themeButton = $('<button>').addClass('theme-button');
       if (themeButtonIndex === 0){
-        $(themeButton).attr('id', 'lfz-theme-button').text('Learning Fuze');
+        $(themeButton).attr('id', 'lfz-theme-button').text('Learning Fuze').on('click', gameAdmin.chooseTheme);
         $('#modal-content').append(themeButton);
       } else if (themeButtonIndex === 1) {
-        $(themeButton).attr('id', 'zelda-theme-button').text('Legend of Zelda');
+        $(themeButton).attr('id', 'zelda-theme-button').text('Legend of Zelda').on('click', gameAdmin.chooseTheme);
         $('#modal-content').append(themeButton);
       } else if (themeButtonIndex === 2) {
-        $(themeButton).attr('id', 'metroid-theme-button').text('Metroid Prime');
+        $(themeButton).attr('id', 'metroid-theme-button').text('Metroid Prime').on('click', gameAdmin.chooseTheme);
         $('#modal-content').append(themeButton);
       } else if (themeButtonIndex === 3) {
-        $(themeButton).attr('id', 'mario-theme-button').text('Super Mario');
+        $(themeButton).attr('id', 'mario-theme-button').text('Super Mario').on('click', gameAdmin.chooseTheme);
         $('#modal-content').append(themeButton);
       }
     }
