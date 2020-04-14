@@ -6,9 +6,9 @@ var firstCardClicked = null;
 var secondCardClicked = null;
 var firstCardClasses = null;
 var secondCardClasses = null;
-var resetButtons = [];
 var gameCards = $('#gameCards').addClass("row col-10");
 var mainModal = $('#modal').addClass("modal hidden");
+var resetButton = $('<button>').text("Reset Game").addClass("reset");
 
 var gameAdmin = {
   deck: [],
@@ -77,16 +77,9 @@ var gameAdmin = {
       view.clearMainModal();
       view.createModalTitleText();
       document.getElementById('modal-message').textContent = "Congratulations You Have Won!!!"
-      view.createResetButton();
-      this.placeResetButton(resetButtons);
-      handlers.setResetHandler();
+      $("#modal-content").append(resetButton).on('click', gameAdmin.resetGame);
       view.showMainModal();
     }
-  },
-  placeResetButton: function (arr) {
-    for (var placeResetIndex = arr.length; placeResetIndex > 0; placeResetIndex--) {
-      mainModal.appendChild(arr[placeResetIndex - 1]);
-    };
   },
   resetGame: function () {
     gameAdmin.removeCards();
@@ -130,11 +123,6 @@ var handlers = {
   },
   removeCardHandlers: function () {
     gameCards.removeEventListener('click', this.handleClick);
-  },
-  setResetHandler: function () {
-    for (var resetIndex = resetButtons.length; resetIndex > 0; resetIndex--){
-      resetButtons[resetIndex - 1].addEventListener('click', gameAdmin.resetGame);
-    };
   },
   handleClick: function (event) {
     if (event.target.className.indexOf('lfz-card-back') === -1){
@@ -248,14 +236,6 @@ var view = {
         document.getElementById('modal-content').appendChild(themeButtons);
       }
     }
-  },
-  createResetButton: function () {
-    var resetButton = document.createElement('button');
-    resetButton.textContent = "Reset Game";
-    resetButton.className = "reset";
-    resetButtons.pop();
-    resetButtons.push(resetButton);
-    console.log(resetButtons);
   },
   clearMainModal: function () {
     var modalToWipe = document.getElementById('modal-content');
