@@ -15,11 +15,47 @@ var startButton = $('<button>').attr('id', 'start-button').text("Let's Go!");
 
 var gameAdmin = {
   deck: [],
+  cardBack: null,
+  theme: null,
   spots: $('.card'),
-  chooseTheme: function (arr) {
+  chooseTheme: function (event) {
     this.deck.length = 0;
-    for (var themeIndex = arr.length; themeIndex > 0; themeIndex--){
-      this.deck.push(arr[themeIndex - 1]);
+    var tempDeck = [];
+    console.log(event)
+    switch(event.target.id){
+      case 'lfz-theme-button':
+        for (var themeIndex = view.themes.lfzDeck.length; themeIndex > 0; themeIndex--) {
+          this.tempDeck.push(view.themes.lfzDeck[themeIndex - 1]);
+        };
+        this.cardBack = "lfz-card-back";
+        this.theme = "lfz-back-image";
+        break;
+      case 'zelda-theme-button':
+        for (var themeIndex = view.themes.zeldaDeck.length; themeIndex > 0; themeIndex--) {
+          this.tempDeck.push(view.themes.zeldaDeck[themeIndex - 1]);
+        };
+        this.cardBack = "zelda-card-back";
+        this.theme = "zelda-back-image";
+        break;
+      case 'metroid-theme-button':
+        for (var themeIndex = view.themes.metroidDeck.length; themeIndex > 0; themeIndex--) {
+          this.tempDeck.push(view.themes.metroidDeck[themeIndex - 1]);
+        };
+        this.cardBack = "metroid-card-back";
+        this.theme = "metroid-back-image";
+        break;
+      case 'mario-theme-button':
+        for (var themeIndex = view.themes.marioDeck.length; themeIndex > 0; themeIndex--) {
+          this.tempDeck.push(view.themes.marioDeck[themeIndex - 1]);
+        };
+        this.cardBack = "mario-card-back";
+        this.theme = "mario-back-image";
+        break;
+      default:
+        break;
+    }
+    for (var themeIndex = tempDeck.length; themeIndex > 0; themeIndex--){
+      this.deck.push(tempDeck[themeIndex - 1]);
     };
   },
   shuffle: function (arr){
@@ -158,8 +194,6 @@ var view = {
       "react-logo",
       "react-logo"
     ],
-    lfzBackground: "lfz-back-image",
-    lfzCardBack: "lfz-card-back",
     zeldaDeck: [
       "zelda-ganondorf-card",
       "zelda-ganondorf-card",
@@ -180,8 +214,6 @@ var view = {
       "zelda-zant-card",
       "zelda-zant-card"
     ],
-    zeldaBackground: "zelda-back-image",
-    zeldaCardBack: "zelda-card-back",
     metroidDeck: [],
     marioDeck: [],
   },
