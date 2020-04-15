@@ -104,6 +104,7 @@ var gameAdmin = {
       view.displayStats();
       this.checkForWin();
     } else {
+      handlers.removeCardHandlers();
       attempts++;
       view.displayStats();
       setTimeout(function () {
@@ -111,16 +112,21 @@ var gameAdmin = {
         secondCardClicked.classList.remove('hidden');
         firstCardClicked = null;
         secondCardClicked = null;
+        firstCardClasses = null;
+        secondCardClasses = null;
         handlers.setCardHandlers();
       }, 1500);
     };
   },
   checkForWin: function () {
     if (matches === maxMatches) {
+      gameAdmin.resetGame();
       $(modalContent).empty();
       $(modalContent).append(modalMessage);
       $(modalMessage).text("Congratulations You Have Won!!!");
-      $(modalContent).append(startButton).on('click', gameAdmin.resetGame);
+      $(modalContent).append(startButton)
+      $(startButton).on('click', gameAdmin.runGame);
+      view.createThemeButtons();
       $(startButton).text("Reset Game");
       $(mainModal).removeClass("hidden");
     }
@@ -134,18 +140,15 @@ var gameAdmin = {
   setUpStart: function () {
     $(mainModal).removeClass("hidden");
     $(modalContent).append(modalMessage, startButton);
-    $(startButton).on('click', gameAdmin.startGame)
+    $(startButton).on('click', gameAdmin.runGame)
     view.createThemeButtons();
     $('#modal-message').text('Welcome to Memory Match');
   },
   runGame: function () {
-    this.shuffle(this.deck);
-    this.placeCards(this.deck, this.cardBack);
-    handlers.setCardHandlers();
+    gameAdmin.shuffle(gameAdmin.deck);
+    gameAdmin.placeCards(gameAdmin.deck, gameAdmin.cardBack);
+    handlers.setCardHandlers()
     $(mainModal).addClass("hidden");
-  },
-  startGame: function () {
-    gameAdmin.runGame();
   },
   cheat: function () {
     matches = 9;
@@ -155,14 +158,14 @@ var gameAdmin = {
 };
 
 var handlers = {
-  setThemeHandlers: function () {
-
-  },
   setCardHandlers: function () {
     $(gameCards).on('click', this.handleClick);
   },
+  removeCardHandlers: function () {
+    $(gameCards).off('click', this.handleClick);
+  },
   handleClick: function (event) {
-    if (event.target.className.indexOf('lfz-card-back') === -1 || event.target.className.indexOf('zelda-card-back') === -1 ){
+    if (event.target.className.indexOf('card-back') === -1) {
       return;
     }
     if (!firstCardClicked) {
