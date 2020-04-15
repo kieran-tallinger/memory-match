@@ -16,39 +16,47 @@ var startButton = $('<button>').attr('id', 'start-button').text("Let's Go!");
 var gameAdmin = {
   deck: [],
   cardBack: null,
-  theme: null,
+  theme: "lfz-back-image",
   spots: $('.card'),
   chooseTheme: function (event) {
     gameAdmin.deck.length = 0;
     var tempDeck = [];
-    switch(event.target.id){
+    switch(event.currentTarget.id){
       case 'lfz-theme-button':
         for (var themeIndex = view.themes.lfzDeck.length; themeIndex > 0; themeIndex--) {
           tempDeck.push(view.themes.lfzDeck[themeIndex - 1]);
         };
         gameAdmin.cardBack = "lfz-card-back";
+        $('body').removeClass(gameAdmin.theme);
         gameAdmin.theme = "lfz-back-image";
+        $('body').addClass(gameAdmin.theme);
         break;
       case 'zelda-theme-button':
         for (var themeIndex = view.themes.zeldaDeck.length; themeIndex > 0; themeIndex--) {
           tempDeck.push(view.themes.zeldaDeck[themeIndex - 1]);
         };
         gameAdmin.cardBack = "zelda-card-back";
+        $('body').removeClass(gameAdmin.theme);
         gameAdmin.theme = "zelda-back-image";
+        $('body').addClass(gameAdmin.theme);
         break;
       case 'metroid-theme-button':
         for (var themeIndex = view.themes.metroidDeck.length; themeIndex > 0; themeIndex--) {
           tempDeck.push(view.themes.metroidDeck[themeIndex - 1]);
         };
         gameAdmin.cardBack = "metroid-card-back";
+        $('body').removeClass(gameAdmin.theme);
         gameAdmin.theme = "metroid-back-image";
+        $('body').addClass(gameAdmin.theme);
         break;
       case 'mario-theme-button':
         for (var themeIndex = view.themes.marioDeck.length; themeIndex > 0; themeIndex--) {
           tempDeck.push(view.themes.marioDeck[themeIndex - 1]);
         };
         gameAdmin.cardBack = "mario-card-back";
+        $('body').removeClass(gameAdmin.theme);
         gameAdmin.theme = "mario-back-image";
+        $('body').addClass(gameAdmin.theme);
         break;
       default:
         break;
@@ -131,9 +139,8 @@ var gameAdmin = {
     $('#modal-message').text('Welcome to Memory Match');
   },
   runGame: function () {
-    this.chooseTheme(view.themes.lfzDeck);
     this.shuffle(this.deck);
-    this.placeCards(this.deck);
+    this.placeCards(this.deck, this.cardBack);
     handlers.setCardHandlers();
     $(mainModal).addClass("hidden");
   },
@@ -155,7 +162,7 @@ var handlers = {
     $(gameCards).on('click', this.handleClick);
   },
   handleClick: function (event) {
-    if (event.target.className.indexOf('lfz-card-back') === -1){
+    if (event.target.className.indexOf('lfz-card-back') === -1 || event.target.className.indexOf('zelda-card-back') === -1 ){
       return;
     }
     if (!firstCardClicked) {
@@ -230,20 +237,22 @@ var view = {
     $('#games-played').text(gamesPlayed);
   },
   createThemeButtons: function () {
+    var themeButtonContainer = $('<div>').addClass('row')
+    $(modalContent).append(themeButtonContainer);
     for (var themeButtonIndex = 0; themeButtonIndex < 4; themeButtonIndex++){
       var themeButton = $('<button>').addClass('theme-button');
       if (themeButtonIndex === 0){
         $(themeButton).attr('id', 'lfz-theme-button').text('Learning Fuze').on('click', gameAdmin.chooseTheme);
-        $('#modal-content').append(themeButton);
+        $(themeButtonContainer).append(themeButton);
       } else if (themeButtonIndex === 1) {
         $(themeButton).attr('id', 'zelda-theme-button').text('Legend of Zelda').on('click', gameAdmin.chooseTheme);
-        $('#modal-content').append(themeButton);
+        $(themeButtonContainer).append(themeButton);
       } else if (themeButtonIndex === 2) {
         $(themeButton).attr('id', 'metroid-theme-button').text('Metroid Prime').on('click', gameAdmin.chooseTheme);
-        $('#modal-content').append(themeButton);
+        $(themeButtonContainer).append(themeButton);
       } else if (themeButtonIndex === 3) {
         $(themeButton).attr('id', 'mario-theme-button').text('Super Mario').on('click', gameAdmin.chooseTheme);
-        $('#modal-content').append(themeButton);
+        $(themeButtonContainer).append(themeButton);
       }
     }
   }
