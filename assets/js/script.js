@@ -171,6 +171,7 @@ var gameAdmin = {
     gameAdmin.shuffle(gameAdmin.deck);
     gameAdmin.placeCards(gameAdmin.deck, gameAdmin.cardBack);
     handlers.setCardHandlers()
+    $('#accuracy').text('0.00%');
     $(mainModal).addClass("hidden");
   },
   cheat: function () {
@@ -259,7 +260,6 @@ var view = {
     matches = 0;
     attempts = 0;
     $('#attempts').text(attempts);
-    $('#accuracy').text('0.0%');
     $('#games-played').text(gamesPlayed);
   },
   createThemeButtons: function () {
