@@ -99,10 +99,13 @@ var gameAdmin = {
       handlers.setCardHandlers();
       firstCardClicked = null;
       secondCardClicked = null;
+      firstCardClasses = null;
+      secondCardClasses = null;
       matches++;
       attempts++;
       view.displayStats();
       this.checkForWin();
+
     } else {
       handlers.removeCardHandlers();
       attempts++;
@@ -132,10 +135,27 @@ var gameAdmin = {
     }
   },
   resetGame: function () {
+    handlers.removeCardHandlers();
     gameAdmin.removeCards();
+    if (this.theme === 'lfz-back-image') {
+      for (var themeIndex = view.themes.lfzDeck.length; themeIndex > 0; themeIndex--) {
+        gameAdmin.deck.push(view.themes.lfzDeck[themeIndex - 1]);
+      };
+    } else if (this.theme === 'zelda-back-image') {
+      for (var themeIndex = view.themes.zeldaDeck.length; themeIndex > 0; themeIndex--) {
+        gameAdmin.deck.push(view.themes.zeldaDeck[themeIndex - 1]);
+      };
+    } else if (this.theme === 'metroid-back-image') {
+      for (var themeIndex = view.themes.metroidDeck.length; themeIndex > 0; themeIndex--) {
+        gameAdmin.deck.push(view.themes.metroidDeck[themeIndex - 1]);
+      };
+    } else if (this.theme === 'mario-back-image') {
+      for (var themeIndex = view.themes.marioDeck.length; themeIndex > 0; themeIndex--) {
+        gameAdmin.deck.push(view.themes.marioDeck[themeIndex - 1]);
+      };
+    }
     gamesPlayed++;
     view.wipeStats();
-    gameAdmin.runGame();
   },
   setUpStart: function () {
     for (var themeIndex = view.themes.lfzDeck.length; themeIndex > 0; themeIndex--) {
