@@ -15,7 +15,7 @@ var startButton = $('<button>').attr('id', 'start-button').text("Let's Go!");
 
 var gameAdmin = {
   deck: [],
-  cardBack: null,
+  cardBack: "lfz-card-back",
   theme: "lfz-back-image",
   spots: $('.card'),
   chooseTheme: function (event) {
@@ -138,6 +138,9 @@ var gameAdmin = {
     gameAdmin.runGame();
   },
   setUpStart: function () {
+    for (var themeIndex = view.themes.lfzDeck.length; themeIndex > 0; themeIndex--) {
+      gameAdmin.deck.push(view.themes.lfzDeck[themeIndex - 1]);
+    };
     $(mainModal).removeClass("hidden");
     $(modalContent).append(modalMessage, startButton);
     $(startButton).on('click', gameAdmin.runGame)
