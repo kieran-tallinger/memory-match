@@ -30,6 +30,7 @@ var gameAdmin = {
         $('body').removeClass(gameAdmin.theme);
         gameAdmin.theme = "lfz-back-image";
         $('body').addClass(gameAdmin.theme);
+        $('#title').text('LFZ Memory Match');
         break;
       case 'zelda-theme-button':
         for (var themeIndex = view.themes.zeldaDeck.length; themeIndex > 0; themeIndex--) {
@@ -39,6 +40,7 @@ var gameAdmin = {
         $('body').removeClass(gameAdmin.theme);
         gameAdmin.theme = "zelda-back-image";
         $('body').addClass(gameAdmin.theme);
+        $('#title').text('Zelda Memory Match');
         break;
       case 'metroid-theme-button':
         for (var themeIndex = view.themes.metroidDeck.length; themeIndex > 0; themeIndex--) {
@@ -48,6 +50,7 @@ var gameAdmin = {
         $('body').removeClass(gameAdmin.theme);
         gameAdmin.theme = "metroid-back-image";
         $('body').addClass(gameAdmin.theme);
+        $('#title').text('Metroid Memory Match');
         break;
       case 'mario-theme-button':
         for (var themeIndex = view.themes.marioDeck.length; themeIndex > 0; themeIndex--) {
@@ -57,6 +60,7 @@ var gameAdmin = {
         $('body').removeClass(gameAdmin.theme);
         gameAdmin.theme = "mario-back-image";
         $('body').addClass(gameAdmin.theme);
+        $('#title').text('Mario Memory Match');
         break;
       default:
         break;
@@ -248,8 +252,46 @@ var view = {
       "zelda-zant-card",
       "zelda-zant-card"
     ],
-    metroidDeck: [],
-    marioDeck: [],
+    metroidDeck: [
+      "metroid-darksamus-card",
+      "metroid-darksamus-card",
+      "metroid-kraid-card",
+      "metroid-kraid-card",
+      "metroid-metroid-card",
+      "metroid-metroid-card",
+      "metroid-metroidprime-card",
+      "metroid-metroidprime-card",
+      "metroid-motherbrain-card",
+      "metroid-motherbrain-card",
+      "metroid-ridley-card",
+      "metroid-ridley-card",
+      "metroid-samus-card",
+      "metroid-samus-card",
+      "metroid-samusship-card",
+      "metroid-samusship-card",
+      "metroid-spacepirate-card",
+      "metroid-spacepirate-card"
+    ],
+    marioDeck: [
+      "mario-bowser-card",
+      "mario-bowser-card",
+      "mario-daisy-card",
+      "mario-daisy-card",
+      "mario-goomba-card",
+      "mario-goomba-card",
+      "mario-luigi-card",
+      "mario-luigi-card",
+      "mario-mario-card",
+      "mario-mario-card",
+      "mario-peach-card",
+      "mario-peach-card",
+      "mario-toad-card",
+      "mario-toad-card",
+      "mario-wario-card",
+      "mario-wario-card",
+      "mario-yoshi-card",
+      "mario-yoshi-card"
+    ],
   },
   displayStats: function () {
     $('#games-played').text(gamesPlayed);
