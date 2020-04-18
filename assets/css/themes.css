@@ -64,3 +64,69 @@
 .zelda-zant-card {
   background-image: url('../images/Zant\ Card.png');
 }
+.mario-card-back {
+  background-image: url('../images/Mario\ Card\ Back.png');
+}
+.mario-back-image {
+  background-image: url('../images/Mario\ Background.jpg');
+}
+.mario-bowser-card{
+  background-image: url('../images/Bowser\ Card.png');
+}
+.mario-daisy-card{
+  background-image: url('../images/Daisy\ Card.png');
+}
+.mario-goomba-card{
+  background-image: url('../images/Goomba\ Card.png');
+}
+.mario-luigi-card{
+  background-image: url('../images/Luigi\ Card.jpg');
+}
+.mario-mario-card{
+  background-image: url('../images/Mario\ Card.png');
+}
+.mario-peach-card{
+  background-image: url('../images/Peach\ Card.jpg');
+}
+.mario-toad-card{
+  background-image: url('../images/Toad\ Card.png');
+}
+.mario-wario-card{
+  background-image: url('../images/Wario\ Card.png');
+}
+.mario-yoshi-card{
+  background-image: url('../images/Yoshi\ Card.png');
+}
+.metroid-card-back {
+  background-image: url('../images/Metroid\ Card\ Back.png');
+}
+.metroid-back-image {
+  background-image: url('../images/Metroid\ Background.png');
+}
+.metroid-darksamus-card{
+  background-image: url('../images/DarkSamus\ Card.png');
+}
+.metroid-kraid-card{
+  background-image: url('../images/Kraid\ Card.png');
+}
+.metroid-metroid-card{
+  background-image: url('../images/Metroid\ Card.jpg');
+}
+.metroid-metroidprime-card{
+  background-image: url('../images/MetroidPrime\ Card.png');
+}
+.metroid-motherbrain-card{
+  background-image: url('../images/MotherBrain\ Card.png');
+}
+.metroid-ridley-card{
+  background-image: url('../images/Ridley\ Card.jpg');
+}
+.metroid-samus-card{
+  background-image: url('../images/Samus\ Card.jpg');
+}
+.metroid-samusship-card{
+  background-image: url('../images/SamusShip\ Card.png');
+}
+.metroid-spacepirate-card{
+  background-image: url('../images/SpacePirate\ Card.png');
+}
