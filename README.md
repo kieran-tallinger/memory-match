@@ -29,7 +29,8 @@ Try the application live at my [portfolio website](https://memory-match.kieranta
 
 ## Preview
 
-![Memory-Match](memory-match-preview.gif)
+![Theme Switch and Game Start](memory-match-preview1.gif)
+![Game End and Reset](memory-match-preview2.gif)
 
 ## Development
 #### System Requirements
