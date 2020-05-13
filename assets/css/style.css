@@ -2,10 +2,11 @@
 .card-back {
   height: 100%;
   width: 100%;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
+  background-color: rgb(8, 55, 82);
 }
 
 body {
