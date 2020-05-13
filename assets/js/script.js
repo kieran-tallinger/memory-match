@@ -16,7 +16,7 @@ var startButton = $('<button>').attr('id', 'start-button').addClass('start-butto
 var gameAdmin = {
   deck: [],
   cardBack: "lfz-card-back",
-  theme: "lfz-back-image",
+  theme: "start-back-image",
   spots: $('.card'),
   chooseTheme: function (event) {
     gameAdmin.deck.length = 0;

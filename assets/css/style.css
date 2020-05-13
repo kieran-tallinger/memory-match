@@ -8,6 +8,7 @@
   position: absolute;
 }
 body {
+  background-color: rgb(8, 55, 82);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
