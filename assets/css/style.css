@@ -8,8 +8,6 @@
   position: absolute;
 }
 body {
-  height: 97vh;
-  margin: 0 auto;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -33,9 +31,12 @@ header {
 }
 
 aside{
-  height: 100%;
+  background: rgb(255, 175, 45);
+  border: 8px solid;
+  border-image: url("/assets/images/lfz-border.jpg") 60 round;
   flex-wrap: wrap;
-  align-content: flex-start;
+  justify-content: center;
+  align-content: stretch;
   margin: 0 auto;
 }
 
@@ -141,18 +142,31 @@ main{
 .hidden {
   display: none;
 }
+
 .stat {
-  height: 13%;
   flex-basis: 100%;
-  margin: 0 auto;
+  margin: 0.2em 1em;
+  padding: .3em;
   text-align: center;
+  font-size: 1.4em;
+  border: 2px solid;
+  background-color: rgba(251, 24, 24, 0.8);
+  color: rgb(8, 55, 82);
 }
-.stat p {
-  background-color: #87ceeb;
-  padding: 1.5rem;
+
+.stat-title {
+  border-bottom: 2px solid;
+  margin-bottom: 1.5em;
+}
+
+.stat-title p {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 2em;
+  padding: 0.8em 0.8em 0.1em 0.8em;
+  margin: 0;
+  background: rgba(255, 175, 45);
 }
+
 .modal-content h2 {
   flex-basis: 100%;
 }
