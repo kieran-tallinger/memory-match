@@ -101,35 +101,35 @@
   background-image: url('../images/Yoshi_Card.png');
 }
 .metroid-card-back {
-  background-image: url('../images/Metroid\ Card\ Back.png');
+  background-image: url('../images/Metroid_Card_Back.png');
 }
 .metroid-back-image {
-  background-image: url('../images/Metroid\ Background.png');
+  background-image: url('../images/Metroid_Background.jpg');
 }
 .metroid-darksamus-card{
-  background-image: url('../images/DarkSamus\ Card.png');
+  background-image: url('../images/DarkSamus_Card.png');
 }
 .metroid-kraid-card{
-  background-image: url('../images/Kraid\ Card.png');
+  background-image: url('../images/Kraid_Card.png');
 }
 .metroid-metroid-card{
-  background-image: url('../images/Metroid\ Card.jpg');
+  background-image: url('../images/Metroid_Card.png');
 }
 .metroid-metroidprime-card{
-  background-image: url('../images/MetroidPrime\ Card.png');
+  background-image: url('../images/MetroidPrime_Card.png');
 }
 .metroid-motherbrain-card{
-  background-image: url('../images/MotherBrain\ Card.png');
+  background-image: url('../images/MotherBrain_Card.png');
 }
 .metroid-ridley-card{
-  background-image: url('../images/Ridley\ Card.jpg');
+  background-image: url('../images/Ridley_Card.png');
 }
 .metroid-samus-card{
-  background-image: url('../images/Samus\ Card.jpg');
+  background-image: url('../images/Samus_Card.png');
 }
 .metroid-samusship-card{
-  background-image: url('../images/SamusShip\ Card.png');
+  background-image: url('../images/SamusShip_Card.png');
 }
 .metroid-spacepirate-card{
-  background-image: url('../images/SpacePirate\ Card.png');
+  background-image: url('../images/SpacePirate_Card.png');
 }
