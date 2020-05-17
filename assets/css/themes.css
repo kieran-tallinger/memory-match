@@ -1,135 +1,135 @@
 .start-back-image {
-  background-image: url('../images/start-background.jpg');
+  background-image: url('../images/start_background.jpg');
 }
 .lfz-card-back {
-  background-image: url('../images/lfz-card.jpg');
+  background-image: url('../images/lfz_card.jpg');
 }
 .lfz-back-image {
-  background-image: url('../images/lfz-background.jpg');
+  background-image: url('../images/lfz_background.jpg');
 }
 .js-logo {
-  background-image: url('../images/js-logo.png');
+  background-image: url('../images/js_logo.png');
 }
 .html-logo {
-  background-image: url('../images/html-logo.png');
+  background-image: url('../images/html_logo.png');
 }
 .css-logo {
-  background-image: url('../images/css-logo.png');
+  background-image: url('../images/css_logo.png');
 }
 .git-logo {
-  background-image: url('../images/gitHub-logo.png');
+  background-image: url('../images/gitHub_logo.png');
 }
 .docker-logo {
-  background-image: url('../images/docker-logo.jpg');
+  background-image: url('../images/docker_logo.jpg');
 }
 .node-logo {
-  background-image: url('../images/node-logo.png');
+  background-image: url('../images/node_logo.png');
 }
 .php-logo {
-  background-image: url('../images/php-logo.jpeg');
+  background-image: url('../images/php_logo.jpeg');
 }
 .sql-logo {
-  background-image: url('../images/mysql-logo.jpg');
+  background-image: url('../images/mysql_logo.jpg');
 }
 .react-logo {
-  background-image: url('../images/react-logo.png');
+  background-image: url('../images/react_logo.png');
 }
 .zelda-card-back {
-  background-image: url('../images/Zelda\ Card\ Back.png');
+  background-image: url('../images/Zelda_Card_Back.png');
 }
 .zelda-back-image {
-  background-image: url('../images/Zelda\ Background.jpg');
+  background-image: url('../images/Zelda_Background.jpg');
 }
 .zelda-ganondorf-card {
-  background-image: url('../images/Ganondorf\ Card.png');
+  background-image: url('../images/Ganondorf_Card.png');
 }
 .zelda-korok-card {
-  background-image: url('../images/Korok\ Card.png');
+  background-image: url('../images/Korok_Card.png');
 }
 .zelda-link-card {
-  background-image: url('../images/Link\ Card.png');
+  background-image: url('../images/Link_Card.png');
 }
 .zelda-midna-card {
-  background-image: url('../images/Midna\ Card.png');
+  background-image: url('../images/Midna_Card.png');
 }
 .zelda-moon-card {
-  background-image: url('../images/Moon\ Card.png');
+  background-image: url('../images/Moon_Card.png');
 }
 .zelda-princess-card {
-  background-image: url('../images/Princess\ Card.png');
+  background-image: url('../images/Princess_Card.png');
 }
 .zelda-sheik-card {
-  background-image: url('../images/Sheik\ Card.png');
+  background-image: url('../images/Sheik_Card.png');
 }
 .zelda-tingle-card {
-  background-image: url('../images/Tingle\ Card.png');
+  background-image: url('../images/Tingle_Card.png');
 }
 .zelda-zant-card {
-  background-image: url('../images/Zant\ Card.png');
+  background-image: url('../images/Zant_Card.png');
 }
 .mario-card-back {
-  background-image: url('../images/Mario\ Card\ Back.png');
+  background-image: url('../images/Mario_Card_Back.png');
 }
 .mario-back-image {
-  background-image: url('../images/Mario\ Background.jpg');
+  background-image: url('../images/Mario_Background.jpg');
 }
 .mario-bowser-card{
-  background-image: url('../images/Bowser\ Card.png');
+  background-image: url('../images/Bowser_Card.png');
 }
 .mario-daisy-card{
-  background-image: url('../images/Daisy\ Card.png');
+  background-image: url('../images/Daisy_Card.png');
 }
 .mario-goomba-card{
-  background-image: url('../images/Goomba\ Card.png');
+  background-image: url('../images/Goomba_Card.png');
 }
 .mario-luigi-card{
-  background-image: url('../images/Luigi\ Card.jpg');
+  background-image: url('../images/Luigi_Card.png');
 }
 .mario-mario-card{
-  background-image: url('../images/Mario\ Card.png');
+  background-image: url('../images/Mario_Card.png');
 }
 .mario-peach-card{
-  background-image: url('../images/Peach\ Card.jpg');
+  background-image: url('../images/Peach_Card.png');
 }
 .mario-toad-card{
-  background-image: url('../images/Toad\ Card.png');
+  background-image: url('../images/Toad_Card.png');
 }
 .mario-wario-card{
-  background-image: url('../images/Wario\ Card.png');
+  background-image: url('../images/Wario_Card.png');
 }
 .mario-yoshi-card{
-  background-image: url('../images/Yoshi\ Card.png');
+  background-image: url('../images/Yoshi_Card.png');
 }
 .metroid-card-back {
-  background-image: url('../images/Metroid\ Card\ Back.png');
+  background-image: url('../images/Metroid_Card_Back.png');
 }
 .metroid-back-image {
-  background-image: url('../images/Metroid\ Background.png');
+  background-image: url('../images/Metroid_Background.jpg');
 }
 .metroid-darksamus-card{
-  background-image: url('../images/DarkSamus\ Card.png');
+  background-image: url('../images/DarkSamus_Card.png');
 }
 .metroid-kraid-card{
-  background-image: url('../images/Kraid\ Card.png');
+  background-image: url('../images/Kraid_Card.png');
 }
 .metroid-metroid-card{
-  background-image: url('../images/Metroid\ Card.jpg');
+  background-image: url('../images/Metroid_Card.png');
 }
 .metroid-metroidprime-card{
-  background-image: url('../images/MetroidPrime\ Card.png');
+  background-image: url('../images/MetroidPrime_Card.png');
 }
 .metroid-motherbrain-card{
-  background-image: url('../images/MotherBrain\ Card.png');
+  background-image: url('../images/MotherBrain_Card.png');
 }
 .metroid-ridley-card{
-  background-image: url('../images/Ridley\ Card.jpg');
+  background-image: url('../images/Ridley_Card.png');
 }
 .metroid-samus-card{
-  background-image: url('../images/Samus\ Card.jpg');
+  background-image: url('../images/Samus_Card.png');
 }
 .metroid-samusship-card{
-  background-image: url('../images/SamusShip\ Card.png');
+  background-image: url('../images/SamusShip_Card.png');
 }
 .metroid-spacepirate-card{
-  background-image: url('../images/SpacePirate\ Card.png');
+  background-image: url('../images/SpacePirate_Card.png');
 }
