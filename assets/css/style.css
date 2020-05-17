@@ -36,7 +36,7 @@ header {
 aside{
   background: rgb(255, 175, 45);
   border: 8px solid;
-  border-image: url("/assets/images/lfz-border.jpg") 60 round;
+  border-image: url("/assets/images/lfz_border.jpg") 20 round;
   flex-wrap: wrap;
   justify-content: center;
   align-content: stretch;
@@ -55,7 +55,7 @@ main{
   width: 45%;
   background:rgb(255, 175, 45);
   border: 8px solid;
-  border-image: url("/assets/images/lfz-border.jpg") 60 round;
+  border-image: url("/assets/images/lfz_border.jpg") 20 round;
 }
 
 .card {
@@ -98,7 +98,7 @@ main{
   flex-wrap: wrap;
   background-color:rgba(255, 175, 45);
   border: 8px solid;
-  border-image: url("/assets/images/lfz-border.jpg") 60 round;
+  border-image: url("/assets/images/lfz_border.jpg") 20 round;
   text-align: center;
 }
 
