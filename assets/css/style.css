@@ -7,6 +7,8 @@
   background-position: center;
   position: absolute;
   background-color: rgb(8, 55, 82);
+  border: 4px solid;
+  border-image: repeating-linear-gradient(50deg, rgb(8,55,82), rgb(212,4,4), rgb(8,55,82) 10px) 40;
 }
 
 body {
@@ -23,12 +25,12 @@ h1 {
 }
 
 h2 {
+  flex-basis: 100%;
   font-size: 2rem;
   color: rgb(8, 55, 82);
 }
 
 header {
-  height: 100%;
   text-align: center;
   margin: 0 auto;
 }
@@ -37,7 +39,6 @@ aside{
   background: rgb(255, 175, 45);
   border: 8px solid;
   border-image: url("/assets/images/lfz_border.jpg") 20 round;
-  flex-wrap: wrap;
   justify-content: center;
   align-content: stretch;
   margin: 0 auto;
@@ -65,16 +66,6 @@ main{
   margin: 0 auto 1rem;
 }
 
-.card-back {
-  border: 4px solid;
-  border-image: repeating-linear-gradient(50deg, rgb(8,55,82), rgb(212,4,4), rgb(8,55,82) 10px) 40;
-}
-
-.card-front {
-  border: 4px solid;
-  border-image: repeating-linear-gradient(50deg, rgb(8,55,82), rgb(212,4,4), rgb(8,55,82) 10px) 40;
-}
-
 .card-back:hover {
   border-image: repeating-linear-gradient(130deg, rgb(255, 175, 45), rgb(212,4,4), rgb(255, 175, 45) 10px) 40;
 }
@@ -91,7 +82,6 @@ main{
 
 .modal-content {
   width: 40%;
-  height: 350px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,17 +174,146 @@ main{
   background: rgba(255, 175, 45);
 }
 
-.modal-content h2 {
-  flex-basis: 100%;
+@media only screen and (max-width: 1980px) and (min-width: 1024px) {
+  .row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .theme-button {
+    flex-basis: 35%;
+  }
 }
-.modal-content button {
-  flex-basis: 35%;
+
+@media only screen and (max-width: 1024px) and (min-width: 768px) and (orientation: landscape) {
+  .title-back {
+    width: 60%;
+  }
+  .theme-button {
+    flex-basis: 40%;
+  }
+  .row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .stat {
+    font-size: 1.2em;
+    margin: .35em 1em;
+  }
 }
-div.container div:first-child.row {
-  justify-content: center;
-  height: 10%;
+
+@media only screen and (max-width: 768px) and (min-width: 667px) and (orientation: portrait) {
+  body {
+    margin-bottom: 4.5em;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  header {
+    margin-bottom: 8em;
+  }
+  .title-back {
+    width: 65%;
+  }
+  .theme-button {
+    flex-basis: 35%;
+  }
+  .row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .stat {
+    flex-basis: 100%;
+    margin: .35em 1em;
+  }
+  .stat-title p{
+    font-size: 1.5em;
+  }
+  .card {
+    flex-basis: 26%;
+    height: 18%;
+  }
 }
-div.container div:last-child.row {
-  height: 90%;
-  margin: 0 auto;
+
+@media only screen and (max-width: 667px) and (min-width: 375px) and (orientation: landscape) {
+  h1 {
+    font-size: 1rem;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+  header {
+    margin-bottom: 1em;
+  }
+  body {
+    margin-bottom: 1.8em;
+  }
+  .title-back {
+    width: 40%;
+  }
+  .theme-button {
+    flex-basis: 35%;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  .card {
+    width: 10%;
+  }
+  .row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .stat {
+    font-size: .6em;
+    margin: 0;
+    padding: 0;
+  }
+  .stat-title p{
+    font-size: 1em;
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 375px) and (orientation: portrait) {
+  body {
+    margin-bottom: 1.9em;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  header {
+    margin-bottom: 2em;
+  }
+  aside {
+    flex-wrap: wrap;
+  }
+  .title-back {
+    width: 80%;
+  }
+  .theme-button {
+    flex-basis: 35%;
+  }
+  .modal-content {
+    width: 75%;
+    flex-wrap: wrap;
+  }
+  .stat {
+    font-size: 1rem;
+    flex-basis: 100%;
+    margin: .35em 1em;
+  }
+  .stat-title p{
+    font-size: .8rem;
+  }
+  .card {
+    flex-basis: 26%;
+    height: 14%;
+  }
+  .col-2 {
+    width: 20%;
+  }
+  .modal-content div {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
