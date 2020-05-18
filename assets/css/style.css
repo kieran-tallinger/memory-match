@@ -273,3 +273,47 @@ main{
     padding: 0;
   }
 }
+
+@media only screen and (max-width: 375px) and (orientation: portrait) {
+  body {
+    margin-bottom: 1.9em;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  header {
+    margin-bottom: 2em;
+  }
+  aside {
+    flex-wrap: wrap;
+  }
+  .title-back {
+    width: 80%;
+  }
+  .theme-button {
+    flex-basis: 35%;
+  }
+  .modal-content {
+    width: 75%;
+    flex-wrap: wrap;
+  }
+  .stat {
+    font-size: 1rem;
+    flex-basis: 100%;
+    margin: .35em 1em;
+  }
+  .stat-title p{
+    font-size: .8rem;
+  }
+  .card {
+    flex-basis: 26%;
+    height: 14%;
+  }
+  .col-2 {
+    width: 20%;
+  }
+  .modal-content div {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
