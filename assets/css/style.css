@@ -232,5 +232,44 @@ main{
     flex-basis: 26%;
     height: 18%;
   }
+}
 
+@media only screen and (max-width: 667px) and (min-width: 375px) and (orientation: landscape) {
+  h1 {
+    font-size: 1rem;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+  header {
+    margin-bottom: 1em;
+  }
+  body {
+    margin-bottom: 1.8em;
+  }
+  .title-back {
+    width: 40%;
+  }
+  .theme-button {
+    flex-basis: 35%;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  .card {
+    width: 10%;
+  }
+  .row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .stat {
+    font-size: .6em;
+    margin: 0;
+    padding: 0;
+  }
+  .stat-title p{
+    font-size: 1em;
+    padding: 0;
+  }
 }
