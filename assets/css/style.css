@@ -40,7 +40,6 @@ aside{
   background: rgb(255, 175, 45);
   border: 8px solid;
   border-image: url("/assets/images/lfz_border.jpg") 20 round;
-  flex-wrap: wrap;
   justify-content: center;
   align-content: stretch;
   margin: 0 auto;
@@ -84,7 +83,6 @@ main{
 
 .modal-content {
   width: 40%;
-  height: 350px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -177,6 +175,16 @@ main{
   background: rgba(255, 175, 45);
 }
 
+@media only screen and (max-width: 1980px) and (min-width: 1024px) {
+  .row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .theme-button {
+    flex-basis: 35%;
+  }
+}
+
 @media only screen and (max-width: 1024px) and (min-width: 768px) and (orientation: landscape) {
   .title-back {
     width: 60%;
@@ -191,5 +199,25 @@ main{
   .stat {
     font-size: 1.2em;
     margin: .35em 1em;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 667px) and (orientation: portrait) {
+  .title-back {
+    width: 60%;
+  }
+  .theme-button {
+    flex-basis: 35%;
+  }
+  .row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .stat {
+    flex-basis: 100%;
+    margin: .35em 1em;
+  }
+  .stat-title p{
+    font-size: 1.5em;
   }
 }
