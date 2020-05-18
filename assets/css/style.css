@@ -31,7 +31,6 @@ h2 {
 }
 
 header {
-  height: 100%;
   text-align: center;
   margin: 0 auto;
 }
@@ -203,8 +202,17 @@ main{
 }
 
 @media only screen and (max-width: 768px) and (min-width: 667px) and (orientation: portrait) {
+  body {
+    margin-bottom: 4.5em;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  header {
+    margin-bottom: 8em;
+  }
   .title-back {
-    width: 60%;
+    width: 65%;
   }
   .theme-button {
     flex-basis: 35%;
@@ -220,4 +228,9 @@ main{
   .stat-title p{
     font-size: 1.5em;
   }
+  .card {
+    flex-basis: 26%;
+    height: 18%;
+  }
+
 }
