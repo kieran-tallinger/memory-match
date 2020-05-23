@@ -38,12 +38,13 @@ Try the application live at my [portfolio website](https://memory-match.kieranta
 - No preexisting programs are required
 
 #### Getting Started
-    1. Clone the repository
+   
+   1. Clone the repository
        ```shell
        git clone https://github.com/kieran-tallinger/memory-match.git
        ```
-    2. Change directory to newly cloned folder
+   2. Change directory to newly cloned folder
        ```shell
        cd memory-match
        ```
-    3. Right click on the index.html file and select "open" to view it in your default browser
+   Right click on the index.html file and select "open" to view it in your default browser!
