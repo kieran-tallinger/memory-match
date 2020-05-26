@@ -178,6 +178,9 @@ main{
 }
 
 @media only screen and (max-width: 1980px) and (min-width: 1024px) {
+  body {
+    margin-bottom: 19em;
+  }
   .row {
     flex-wrap: wrap;
     justify-content: center;
@@ -248,7 +251,7 @@ main{
     margin-bottom: 1em;
   }
   body {
-    margin-bottom: 1.8em;
+    margin-bottom: 2.3em;
   }
   .title-back {
     width: 40%;
