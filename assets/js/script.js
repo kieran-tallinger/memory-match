@@ -10,7 +10,7 @@ var gameCards = $('#gameCards').addClass("row col-10");
 var mainModal = $('#modal').addClass("modal hidden");
 var modalContent = $('#modal-content').addClass('modal-content');
 var modalMessage = $('<h2>').attr('id', 'modal-message');
-var startButton = $('<button>').attr('id', 'start-button').addClass('start-button').text("Let's Go!");
+var startButton = $('<button>').attr('id', 'start-button').addClass('start-button').text("Start!");
 
 
 var gameAdmin = {
@@ -169,7 +169,7 @@ var gameAdmin = {
     $(modalContent).append(modalMessage, startButton);
     $(startButton).on('click', gameAdmin.runGame)
     view.createThemeButtons();
-    $('#modal-message').text('Welcome to Memory Match');
+    $('#modal-message').text('Select a Theme');
   },
   runGame: function () {
     gameAdmin.shuffle(gameAdmin.deck);
