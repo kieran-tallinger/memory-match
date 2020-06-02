@@ -1,37 +1,37 @@
 .start-back-image {
   background-image: url('../images/start_background.jpg');
 }
-.lfz-card-back {
+.kirby-card-back {
   background-image: url('../images/kirby_card_back.png');
 }
-.lfz-back-image {
+.kirby-back-image {
   background-image: url('../images/kirby_background.jpg');
 }
-.js-logo {
+.cleaning-kirby-card {
   background-image: url('../images/cleaning_kirby_card.png');
 }
-.html-logo {
+.fire-kirby-card {
   background-image: url('../images/fire_kirby_card.png');
 }
-.css-logo {
+.mirror-kirby-card {
   background-image: url('../images/mirror_kirby_card.png');
 }
-.git-logo {
+.rock-kirby-card {
   background-image: url('../images/rock_kirby_card.png');
 }
-.docker-logo {
+.staff-kirby-card {
   background-image: url('../images/staff_kirby_card.png');
 }
-.node-logo {
+.star-kirby-card {
   background-image: url('../images/star_kirby_card.png');
 }
-.php-logo {
+.yoyo-kirby-card {
   background-image: url('../images/yoyo_kirby_card.png');
 }
-.sql-logo {
+.waddle-card {
   background-image: url('../images/waddle_card.png');
 }
-.react-logo {
+.kirby-card {
   background-image: url('../images/kirby_card.png');
 }
 .zelda-card-back {
