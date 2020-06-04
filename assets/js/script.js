@@ -171,6 +171,9 @@ var gameAdmin = {
     $('#modal-message').text('Select a Theme');
   },
   runGame: function () {
+    if (gameAdmin.theme === 'start-back-image') {
+      gameAdmin.chooseTheme({currentTarget: { id: 'kirby-theme-button'}})
+    }
     view.wipeStats();
     gameAdmin.shuffle(gameAdmin.deck);
     gameAdmin.placeCards(gameAdmin.deck, gameAdmin.cardBack);
