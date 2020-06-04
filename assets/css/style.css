@@ -64,10 +64,10 @@ main{
   height: 30%;
   position: relative;
   margin: 0 auto 1rem;
-  cursor: pointer;
 }
 
 .card-back:hover {
+  cursor: pointer;
   border-image: repeating-linear-gradient(130deg, rgb(255, 175, 45), rgb(212,4,4), rgb(255, 175, 45) 10px) 40;
 }
 

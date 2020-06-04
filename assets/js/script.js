@@ -126,7 +126,8 @@ var gameAdmin = {
   },
   checkForWin: function () {
     if (matches === maxMatches) {
-      gameAdmin.resetGame();
+      handlers.removeCardHandlers();
+      gamesPlayed++;
       $(modalContent).empty();
       $(modalContent).append(modalMessage);
       $(modalMessage).text("Congratulations You Have Won!!!");
@@ -157,7 +158,6 @@ var gameAdmin = {
         gameAdmin.deck.push(view.themes.marioDeck[themeIndex - 1]);
       };
     }
-    gamesPlayed++;
     view.wipeStats();
   },
   setUpStart: function () {
@@ -171,6 +171,10 @@ var gameAdmin = {
     $('#modal-message').text('Select a Theme');
   },
   runGame: function () {
+    if (gameAdmin.theme === 'start-back-image') {
+      gameAdmin.chooseTheme({currentTarget: { id: 'kirby-theme-button'}})
+    }
+    view.wipeStats();
     gameAdmin.shuffle(gameAdmin.deck);
     gameAdmin.placeCards(gameAdmin.deck, gameAdmin.cardBack);
     handlers.setCardHandlers()
