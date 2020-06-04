@@ -15,22 +15,22 @@ var startButton = $('<button>').attr('id', 'start-button').addClass('start-butto
 
 var gameAdmin = {
   deck: [],
-  cardBack: "lfz-card-back",
+  cardBack: "kirby-card-back",
   theme: "start-back-image",
   spots: $('.card'),
   chooseTheme: function (event) {
     gameAdmin.deck.length = 0;
     var tempDeck = [];
     switch(event.currentTarget.id){
-      case 'lfz-theme-button':
-        for (var themeIndex = view.themes.lfzDeck.length; themeIndex > 0; themeIndex--) {
-          tempDeck.push(view.themes.lfzDeck[themeIndex - 1]);
+      case 'kirby-theme-button':
+        for (var themeIndex = view.themes.kirbyDeck.length; themeIndex > 0; themeIndex--) {
+          tempDeck.push(view.themes.kirbyDeck[themeIndex - 1]);
         };
-        gameAdmin.cardBack = "lfz-card-back";
+        gameAdmin.cardBack = "kirby-card-back";
         $('body').removeClass(gameAdmin.theme);
-        gameAdmin.theme = "lfz-back-image";
+        gameAdmin.theme = "kirby-back-image";
         $('body').addClass(gameAdmin.theme);
-        $('#title').text('LFZ Memory Match');
+        $('#title').text('Kirby Memory Match');
         break;
       case 'zelda-theme-button':
         for (var themeIndex = view.themes.zeldaDeck.length; themeIndex > 0; themeIndex--) {
@@ -109,7 +109,6 @@ var gameAdmin = {
       attempts++;
       view.displayStats();
       this.checkForWin();
-
     } else {
       handlers.removeCardHandlers();
       attempts++;
@@ -141,9 +140,9 @@ var gameAdmin = {
   resetGame: function () {
     handlers.removeCardHandlers();
     gameAdmin.removeCards();
-    if (this.theme === 'lfz-back-image') {
-      for (var themeIndex = view.themes.lfzDeck.length; themeIndex > 0; themeIndex--) {
-        gameAdmin.deck.push(view.themes.lfzDeck[themeIndex - 1]);
+    if (this.theme === 'kirby-back-image') {
+      for (var themeIndex = view.themes.kirbyDeck.length; themeIndex > 0; themeIndex--) {
+        gameAdmin.deck.push(view.themes.kirbyDeck[themeIndex - 1]);
       };
     } else if (this.theme === 'zelda-back-image') {
       for (var themeIndex = view.themes.zeldaDeck.length; themeIndex > 0; themeIndex--) {
@@ -162,8 +161,8 @@ var gameAdmin = {
     view.wipeStats();
   },
   setUpStart: function () {
-    for (var themeIndex = view.themes.lfzDeck.length; themeIndex > 0; themeIndex--) {
-      gameAdmin.deck.push(view.themes.lfzDeck[themeIndex - 1]);
+    for (var themeIndex = view.themes.kirbyDeck.length; themeIndex > 0; themeIndex--) {
+      gameAdmin.deck.push(view.themes.kirbyDeck[themeIndex - 1]);
     };
     $(mainModal).removeClass("hidden");
     $(modalContent).append(modalMessage, startButton);
@@ -212,25 +211,25 @@ var handlers = {
 
 var view = {
   themes: {
-    lfzDeck: [
-      "js-logo",
-      "js-logo",
-      "html-logo",
-      "html-logo",
-      "css-logo",
-      "css-logo",
-      "git-logo",
-      "git-logo",
-      "docker-logo",
-      "docker-logo",
-      "node-logo",
-      "node-logo",
-      "php-logo",
-      "php-logo",
-      "sql-logo",
-      "sql-logo",
-      "react-logo",
-      "react-logo"
+    kirbyDeck: [
+      "kirby-ninja-card",
+      "kirby-ninja-card",
+      "kirby-mario-card",
+      "kirby-mario-card",
+      "kirby-star-card",
+      "kirby-star-card",
+      "kirby-knight-card",
+      "kirby-knight-card",
+      "kirby-king-card",
+      "kirby-king-card",
+      "kirby-dj-card",
+      "kirby-dj-card",
+      "kirby-whip-card",
+      "kirby-whip-card",
+      "kirby-spooky-card",
+      "kirby-spooky-card",
+      "kirby-card",
+      "kirby-card"
     ],
     zeldaDeck: [
       "zelda-ganondorf-card",
@@ -310,7 +309,7 @@ var view = {
     for (var themeButtonIndex = 0; themeButtonIndex < 4; themeButtonIndex++){
       var themeButton = $('<button>').addClass('theme-button');
       if (themeButtonIndex === 0){
-        $(themeButton).attr('id', 'lfz-theme-button').text('Learning Fuze').on('click', gameAdmin.chooseTheme);
+        $(themeButton).attr('id', 'kirby-theme-button').text('Kirby Dreamland').on('click', gameAdmin.chooseTheme);
         $(themeButtonContainer).append(themeButton);
       } else if (themeButtonIndex === 1) {
         $(themeButton).attr('id', 'zelda-theme-button').text('Legend of Zelda').on('click', gameAdmin.chooseTheme);

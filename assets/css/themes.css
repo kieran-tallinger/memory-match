@@ -1,38 +1,38 @@
 .start-back-image {
   background-image: url('../images/start_background.jpg');
 }
-.lfz-card-back {
-  background-image: url('../images/lfz_card.jpg');
+.kirby-card-back {
+  background-image: url('../images/kirby_card_back.png');
 }
-.lfz-back-image {
-  background-image: url('../images/lfz_background.jpg');
+.kirby-back-image {
+  background-image: url('../images/kirby_background.jpg');
 }
-.js-logo {
-  background-image: url('../images/js_logo.png');
+.kirby-ninja-card {
+  background-image: url('../images/kirby_ninja_card.png');
 }
-.html-logo {
-  background-image: url('../images/html_logo.png');
+.kirby-mario-card {
+  background-image: url('../images/kirby_mario_card.png');
 }
-.css-logo {
-  background-image: url('../images/css_logo.png');
+.kirby-star-card {
+  background-image: url('../images/kirby_star_card.png');
 }
-.git-logo {
-  background-image: url('../images/gitHub_logo.png');
+.kirby-knight-card {
+  background-image: url('../images/kirby_knight_card.png');
 }
-.docker-logo {
-  background-image: url('../images/docker_logo.jpg');
+.kirby-king-card {
+  background-image: url('../images/kirby_king_card.png');
 }
-.node-logo {
-  background-image: url('../images/node_logo.png');
+.kirby-dj-card {
+  background-image: url('../images/kirby_dj_card.png');
 }
-.php-logo {
-  background-image: url('../images/php_logo.jpeg');
+.kirby-whip-card {
+  background-image: url('../images/kirby_whip_card.png');
 }
-.sql-logo {
-  background-image: url('../images/mysql_logo.jpg');
+.kirby-spooky-card {
+  background-image: url('../images/kirby_spooky_card.png');
 }
-.react-logo {
-  background-image: url('../images/react_logo.png');
+.kirby-card {
+  background-image: url('../images/kirby_card.png');
 }
 .zelda-card-back {
   background-image: url('../images/Zelda_Card_Back.png');
